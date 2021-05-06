@@ -1,0 +1,6 @@
+{
+  "baseDir": "/compbio2/analysis/JimCoffman/jcoffman_008.klf9_multiTime_2021",
+  "design_file": "/compbio2/data/JimCoffman/jcoffman_008.klf9_multiTime_2021/jcoffman_008.design.txt",
+  "tx2gene_file": "/compbio2/reference/ensembl/release-101/danio_rerio/ens101_GRCz11_tx2gene.txt",
+  "output_file_prefix": "jcoffman_008.klf9_multiTime_2021"
+}
