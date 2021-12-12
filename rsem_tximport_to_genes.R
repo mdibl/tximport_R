@@ -16,6 +16,9 @@ samples
 files <- file.path(jObj$baseDir,paste0(samples$sample,".genes.results"))
 files
 names(files) <- (samples$sample)
+tx_files <- file.path(jObj$baseDir,paste0(samples$sample,".isoforms.results"))
+tx_files
+tx_names(files) <- (samples$sample)
 
 tx2gene <- read.table(jObj$tx2gene_file)
 summary(tx2gene)
@@ -25,7 +28,7 @@ summary(txi)
 write.table(as.table(txi$counts),paste(jObj$output_file_prefix,'.gene.counts.txt',sep=""),sep='\t',col.names=NA,row.names=TRUE,quote=FALSE)
 write.table(as.table(txi$abundance),paste(jObj$output_file_prefix,'.gene.tpm.txt',sep=""),sep='\t',col.names=NA,row.names=TRUE,quote=FALSE)
 
-txit <- tximport(files, type = "rsem", tx2gene=tx2gene, txOut=TRUE)
+txit <- tximport(tx_files, type = "rsem", tx2gene=tx2gene, txOut=TRUE)
 summary(txit)
 write.table(as.table(txit$counts),paste(jObj$output_file_prefix,'.transcript.counts.txt',sep=""),sep='\t',col.names=NA,row.names=TRUE,quote=FALSE)
 write.table(as.table(txit$abundance),paste(jObj$output_file_prefix,'.transcript.tpm.txt',sep=""),sep='\t',col.names=NA,row.names=TRUE,quote=FALSE)
